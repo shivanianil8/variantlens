@@ -15,6 +15,6 @@ services:
       - key: DEBUG
         value: "false"
       - key: FRONTEND_URL
-        sync: false
+        value: "https://variantlens.vercel.app"
       - key: NCBI_EMAIL
         value: variantlens-research@example.edu
