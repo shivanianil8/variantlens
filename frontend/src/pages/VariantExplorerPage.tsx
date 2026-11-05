@@ -137,21 +137,24 @@ export const VariantExplorerPage: React.FC = () => {
               {/* Quick Navigation to Downstream Modules */}
               <div className="flex flex-wrap items-center gap-3">
                 <button
-                  onClick={() => navigate(`/protein-3d?uniprot=${currentVariant.uniprot_accession}&pos=${currentVariant.variant.protein_position}&wt=${currentVariant.variant.wild_type_aa}&mut=${currentVariant.variant.mutant_aa}`)}
+                  onClick={() => navigate(`/protein-3d?gene=${currentVariant.variant.gene_symbol}&uniprot=${currentVariant.uniprot_accession || ''}&pos=${currentVariant.variant.protein_position}&wt=${currentVariant.variant.wild_type_aa}&mut=${currentVariant.variant.mutant_aa}`)}
                   className="px-3.5 py-2 rounded-lg bg-navy-800 hover:bg-navy-750 text-cyan-300 border border-cyan-500/30 hover:border-cyan-400 text-xs font-medium flex items-center gap-2 cursor-pointer transition-colors shadow-sm"
                 >
                   <Box className="w-3.5 h-3.5" />
                   <span>View in 3D Mol*</span>
                 </button>
                 <button
-                  onClick={() => navigate(`/prediction?q=${encodeURIComponent(currentVariant.variant.raw_query)}`)}
+                  onClick={() => navigate(`/prediction?gene=${currentVariant.variant.gene_symbol}&pos=${currentVariant.variant.protein_position}&wt=${currentVariant.variant.wild_type_aa}&mut=${currentVariant.variant.mutant_aa}`)}
                   className="px-3.5 py-2 rounded-lg bg-navy-800 hover:bg-navy-750 text-teal-300 border border-teal-500/30 hover:border-teal-400 text-xs font-medium flex items-center gap-2 cursor-pointer transition-colors shadow-sm"
                 >
                   <BrainCircuit className="w-3.5 h-3.5" />
                   <span>Explainability & SHAP</span>
                 </button>
                 <button
-                  onClick={() => navigate(`/evidence?q=${encodeURIComponent(currentVariant.variant.raw_query)}`)}
+                  onClick={() => {
+                    const qStr = currentVariant.variant.raw_query || `${currentVariant.variant.gene_symbol} ${currentVariant.variant.wild_type_aa}${currentVariant.variant.protein_position}${currentVariant.variant.mutant_aa}`;
+                    navigate(`/evidence?q=${encodeURIComponent(qStr)}`);
+                  }}
                   className="px-3.5 py-2 rounded-lg bg-navy-800 hover:bg-navy-750 text-slate-300 hover:text-white border border-navy-700 text-xs font-medium flex items-center gap-2 cursor-pointer transition-colors shadow-sm"
                 >
                   <BookOpen className="w-3.5 h-3.5" />

@@ -1,0 +1,9 @@
+{
+  "total_downloaded_records": 9345867,
+  "total_human_grch38_records": 4639270,
+  "total_missense_snvs": 2572692,
+  "benchmark_candidates_count": 218718,
+  "exploratory_candidates_count": 2353974,
+  "filtered_missense_path": "/Users/shivani/.gemini/antigravity/scratch/variantlens/backend/data/processed/clinvar_missense_filtered.parquet",
+  "exploratory_path": "/Users/shivani/.gemini/antigravity/scratch/variantlens/backend/data/processed/clinvar_exploratory_vus_conflicting.parquet"
+}

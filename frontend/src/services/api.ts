@@ -1,10 +1,13 @@
 import {
   VariantAnnotationResponse,
   ModelMetadataResponse,
-  SystemHealth
+  SystemHealth,
+  PredictRequest,
+  PredictResponse,
 } from '../types/variant';
 
-const API_BASE = '/api';
+const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
+const API_BASE = VITE_API_BASE_URL ? `${VITE_API_BASE_URL.replace(/\/$/, '')}/api` : '/api';
 
 export async function fetchHealth(): Promise<SystemHealth> {
   const res = await fetch(`${API_BASE}/health`);
@@ -29,6 +32,23 @@ export async function searchVariant(query: string): Promise<VariantAnnotationRes
     const errorData = await res.json().catch(() => ({ detail: res.statusText }));
     throw new Error(errorData.detail || 'Variant search failed');
   }
+  return res.json();
+}
+
+export async function predictVariant(payload: PredictRequest): Promise<PredictResponse> {
+  const res = await fetch(`${API_BASE}/predict`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const errorData = await res.json().catch(() => ({ detail: res.statusText }));
+    throw new Error(errorData.detail || `Prediction failed with status ${res.status}`);
+  }
+
   return res.json();
 }
 

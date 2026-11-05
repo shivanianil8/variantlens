@@ -1,0 +1,124 @@
+{
+  "pipeline_phase": "Phase 3: Biological Feature Engineering",
+  "cohort": "High-Confidence ClinVar GRCh38 Missense SNVs (>= 1 Review Star)",
+  "input_records_count": 202575,
+  "successfully_mapped_count": 202575,
+  "mapping_failure_count": 0,
+  "mapping_failure_reasons": {},
+  "unique_overlapping_gene_groups": 15115,
+  "features_path": "/Users/shivani/.gemini/antigravity/scratch/variantlens/backend/data/processed/variant_features.parquet",
+  "ten_features_specification": {
+    "relative_protein_position": {
+      "unit": "ratio [0, 1]",
+      "domain": "Positional",
+      "missingness_handling": "Imputed to median if canonical length unknown",
+      "rationale": "Positional context normalized across varying polypeptide chain lengths"
+    },
+    "absolute_protein_position": {
+      "unit": "integer >= 1",
+      "domain": "Positional",
+      "missingness_handling": "Deterministic residue index",
+      "rationale": "Residue coordinate along canonical transcript"
+    },
+    "grantham_distance": {
+      "unit": "index [5, 215]",
+      "domain": "Physicochemical",
+      "missingness_handling": "Complete 20x20 matrix (0% missing)",
+      "rationale": "Chemical distance incorporating polarity, composition, and molecular volume (Grantham 1974)"
+    },
+    "blosum62_score": {
+      "unit": "log-odds [-4, 11]",
+      "domain": "Evolutionary",
+      "missingness_handling": "Complete 20x20 matrix (0% missing)",
+      "rationale": "Empirical substitution likelihood from Henikoff alignment blocks (Henikoff 1992)"
+    },
+    "hydropathy_delta": {
+      "unit": "delta hydropathy [-9, 9]",
+      "domain": "Biophysical",
+      "missingness_handling": "Complete Kyte-Doolittle scale (0% missing)",
+      "rationale": "Differential hydrophobicity affecting hydrophobic core packing vs loop solubility"
+    },
+    "charge_delta": {
+      "unit": "delta e at pH 7.4 [-2, 2]",
+      "domain": "Electrostatic",
+      "missingness_handling": "Complete physiological charge scale (0% missing)",
+      "rationale": "Net electrostatic charge shift disrupting salt bridges and ligand interfaces"
+    },
+    "molecular_weight_delta": {
+      "unit": "delta Daltons [-115, 115]",
+      "domain": "Steric",
+      "missingness_handling": "Complete empirical mass table (0% missing)",
+      "rationale": "Steric bulk volume differential altering packing density"
+    },
+    "is_observed_in_gnomad": {
+      "unit": "binary {0, 1}",
+      "domain": "Population Genetics",
+      "missingness_handling": "Deterministic flag; 0 if absent",
+      "rationale": "Presence indicator in outbred human exome sequencing cohort"
+    },
+    "gnomad_log10_af": {
+      "unit": "log10(AF)",
+      "domain": "Population Genetics",
+      "missingness_handling": "Native NaN in XGBoost; NEVER imputed to zero",
+      "rationale": "Population allele frequency reflecting natural selection constraint"
+    },
+    "alphafold_plddt": {
+      "unit": "score [0, 100]",
+      "domain": "Structural Biology",
+      "missingness_handling": "Native NaN if no structure available",
+      "rationale": "AlphaFold structural prediction confidence (ordered domain vs disordered loop)"
+    }
+  },
+  "feature_missingness_summary": {
+    "relative_protein_position": {
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "present_count": 202575
+    },
+    "absolute_protein_position": {
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "present_count": 202575
+    },
+    "grantham_distance": {
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "present_count": 202575
+    },
+    "blosum62_score": {
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "present_count": 202575
+    },
+    "hydropathy_delta": {
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "present_count": 202575
+    },
+    "charge_delta": {
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "present_count": 202575
+    },
+    "molecular_weight_delta": {
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "present_count": 202575
+    },
+    "is_observed_in_gnomad": {
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "present_count": 202575
+    },
+    "gnomad_log10_af": {
+      "null_count": 202575,
+      "null_percentage": 100.0,
+      "present_count": 0
+    },
+    "alphafold_plddt": {
+      "null_count": 200192,
+      "null_percentage": 98.82,
+      "present_count": 2383
+    }
+  }
+}

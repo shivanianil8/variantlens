@@ -1,0 +1,12 @@
+{
+  "initial_benchmark_records": 218718,
+  "valid_coordinates_benchmark": 218718,
+  "duplicate_genomic_rows_found": 0,
+  "conflicting_genomic_loci_reclassified": 0,
+  "final_unique_benchmark_variants": 218718,
+  "final_unique_benchmark_genes": 15935,
+  "final_unique_exploratory_variants": 2353974,
+  "final_unique_exploratory_genes": 19757,
+  "deduplicated_benchmark_path": "/Users/shivani/.gemini/antigravity/scratch/variantlens/backend/data/processed/clinvar_benchmark_deduplicated.parquet",
+  "deduplicated_exploratory_path": "/Users/shivani/.gemini/antigravity/scratch/variantlens/backend/data/processed/clinvar_exploratory_deduplicated.parquet"
+}

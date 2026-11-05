@@ -15,6 +15,7 @@ env/
 build/
 develop-eggs/
 dist/
+dist-ssr/
 downloads/
 eggs/
 .eggs/
@@ -30,21 +31,24 @@ wheels/
 
 # Node / Frontend
 node_modules/
-dist/
-dist-ssr/
 *.local
 .npm
+frontend/tsconfig.tsbuildinfo
+frontend/tsconfig.node.tsbuildinfo
 
-# Logs & temp
+# Logs, testing & cache
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .eslintcache
+.pytest_cache/
 
-# Environment variables
+# Environment variables & secrets
 .env
 .env.*.local
+*.pem
+*.key
 
 # IDE & OS
 .vscode/
@@ -54,9 +58,11 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
-# Large raw datasets (not checked into git)
-data/
-backend/data/
+# Large raw datasets & large exploratory archives (Excludes 457MB raw ClinVar and >100MB files)
+backend/data/raw/
+backend/data/processed/clinvar_exploratory_*.parquet
+backend/data/processed/variant_features.parquet
+backend/data/processed/clinvar_missense_filtered.parquet
+backend/app/ml/artifacts/oof_predictions.parquet
 *.vcf.gz
 *.txt.gz
-*.parquet

@@ -1,0 +1,562 @@
+{
+  "pipeline_phase": "Phase 4: Leak-Free Machine Learning Training & Evaluation",
+  "cohort_size": 202575,
+  "positive_class_prevalence": 0.3054,
+  "cv_strategy": "5-Fold GroupKFold by overlapping gene groups",
+  "number_of_groups": 15115,
+  "core_features": [
+    "grantham_distance",
+    "blosum62_score",
+    "hydropathy_delta",
+    "charge_delta",
+    "molecular_weight_delta",
+    "relative_protein_position",
+    "absolute_protein_position"
+  ],
+  "models": {
+    "dummy": {
+      "model_name": "dummy",
+      "roc_auc": 0.4776,
+      "roc_auc_std": 0.0,
+      "pr_auc": 0.2941,
+      "pr_auc_std": 0.0182,
+      "balanced_accuracy": 0.5,
+      "balanced_accuracy_std": 0.0,
+      "brier_score": 0.2123,
+      "precision_at_0_5": 0.0,
+      "recall_at_0_5": 0.0,
+      "f1_score_at_0_5": 0.0,
+      "confusion_matrix": [
+        [
+          140717,
+          0
+        ],
+        [
+          61858,
+          0
+        ]
+      ],
+      "fold_metrics": [
+        {
+          "roc_auc": 0.5,
+          "pr_auc": 0.3066,
+          "balanced_acc": 0.5,
+          "brier_score": 0.2126
+        },
+        {
+          "roc_auc": 0.5,
+          "pr_auc": 0.3018,
+          "balanced_acc": 0.5,
+          "brier_score": 0.2108
+        },
+        {
+          "roc_auc": 0.5,
+          "pr_auc": 0.3369,
+          "balanced_acc": 0.5,
+          "brier_score": 0.2249
+        },
+        {
+          "roc_auc": 0.5,
+          "pr_auc": 0.301,
+          "balanced_acc": 0.5,
+          "brier_score": 0.2104
+        },
+        {
+          "roc_auc": 0.5,
+          "pr_auc": 0.2804,
+          "balanced_acc": 0.5,
+          "brier_score": 0.2027
+        }
+      ]
+    },
+    "logistic_regression": {
+      "model_name": "logistic_regression",
+      "roc_auc": 0.7162,
+      "roc_auc_std": 0.0073,
+      "pr_auc": 0.5321,
+      "pr_auc_std": 0.0278,
+      "balanced_accuracy": 0.6612,
+      "balanced_accuracy_std": 0.0053,
+      "brier_score": 0.2131,
+      "precision_at_0_5": 0.472,
+      "recall_at_0_5": 0.6342,
+      "f1_score_at_0_5": 0.5412,
+      "confusion_matrix": [
+        [
+          96841,
+          43876
+        ],
+        [
+          22629,
+          39229
+        ]
+      ],
+      "fold_metrics": [
+        {
+          "roc_auc": 0.7276,
+          "pr_auc": 0.5629,
+          "balanced_acc": 0.6705,
+          "brier_score": 0.2142
+        },
+        {
+          "roc_auc": 0.7197,
+          "pr_auc": 0.5314,
+          "balanced_acc": 0.6601,
+          "brier_score": 0.2089
+        },
+        {
+          "roc_auc": 0.7094,
+          "pr_auc": 0.5572,
+          "balanced_acc": 0.657,
+          "brier_score": 0.2157
+        },
+        {
+          "roc_auc": 0.7176,
+          "pr_auc": 0.5213,
+          "balanced_acc": 0.6622,
+          "brier_score": 0.213
+        },
+        {
+          "roc_auc": 0.7073,
+          "pr_auc": 0.4854,
+          "balanced_acc": 0.6555,
+          "brier_score": 0.2139
+        }
+      ]
+    },
+    "random_forest": {
+      "model_name": "random_forest",
+      "roc_auc": 0.7993,
+      "roc_auc_std": 0.0089,
+      "pr_auc": 0.6475,
+      "pr_auc_std": 0.0187,
+      "balanced_accuracy": 0.7242,
+      "balanced_accuracy_std": 0.0084,
+      "brier_score": 0.1802,
+      "precision_at_0_5": 0.5692,
+      "recall_at_0_5": 0.672,
+      "f1_score_at_0_5": 0.6163,
+      "confusion_matrix": [
+        [
+          109253,
+          31464
+        ],
+        [
+          20291,
+          41567
+        ]
+      ],
+      "fold_metrics": [
+        {
+          "roc_auc": 0.8087,
+          "pr_auc": 0.6647,
+          "balanced_acc": 0.7382,
+          "brier_score": 0.1813
+        },
+        {
+          "roc_auc": 0.8065,
+          "pr_auc": 0.647,
+          "balanced_acc": 0.7229,
+          "brier_score": 0.1752
+        },
+        {
+          "roc_auc": 0.7866,
+          "pr_auc": 0.6618,
+          "balanced_acc": 0.7156,
+          "brier_score": 0.185
+        },
+        {
+          "roc_auc": 0.8057,
+          "pr_auc": 0.6527,
+          "balanced_acc": 0.7276,
+          "brier_score": 0.1785
+        },
+        {
+          "roc_auc": 0.7919,
+          "pr_auc": 0.6126,
+          "balanced_acc": 0.7157,
+          "brier_score": 0.181
+        }
+      ]
+    },
+    "xgboost": {
+      "model_name": "xgboost",
+      "roc_auc": 0.8076,
+      "roc_auc_std": 0.0084,
+      "pr_auc": 0.6576,
+      "pr_auc_std": 0.0183,
+      "balanced_accuracy": 0.7327,
+      "balanced_accuracy_std": 0.0061,
+      "brier_score": 0.1765,
+      "precision_at_0_5": 0.5607,
+      "recall_at_0_5": 0.71,
+      "f1_score_at_0_5": 0.6266,
+      "confusion_matrix": [
+        [
+          106299,
+          34418
+        ],
+        [
+          17937,
+          43921
+        ]
+      ],
+      "fold_metrics": [
+        {
+          "roc_auc": 0.8137,
+          "pr_auc": 0.6704,
+          "balanced_acc": 0.7396,
+          "brier_score": 0.1789
+        },
+        {
+          "roc_auc": 0.8141,
+          "pr_auc": 0.6599,
+          "balanced_acc": 0.7334,
+          "brier_score": 0.1704
+        },
+        {
+          "roc_auc": 0.7946,
+          "pr_auc": 0.6708,
+          "balanced_acc": 0.7245,
+          "brier_score": 0.1825
+        },
+        {
+          "roc_auc": 0.8155,
+          "pr_auc": 0.6645,
+          "balanced_acc": 0.7388,
+          "brier_score": 0.1735
+        },
+        {
+          "roc_auc": 0.8013,
+          "pr_auc": 0.6218,
+          "balanced_acc": 0.7271,
+          "brier_score": 0.177
+        }
+      ]
+    }
+  },
+  "tree_shap_ranking": {
+    "blosum62_score": 0.4778,
+    "absolute_protein_position": 0.4607,
+    "relative_protein_position": 0.3896,
+    "grantham_distance": 0.299,
+    "hydropathy_delta": 0.2234,
+    "molecular_weight_delta": 0.1449,
+    "charge_delta": 0.0811
+  },
+  "benchmark_variant_explanations": [
+    {
+      "variant": "TP53 R175H",
+      "gene": "TP53",
+      "protein_change": "p.Arg175His",
+      "predicted_pathogenicity_probability": 0.4772,
+      "shap_base_value": 0.0026,
+      "feature_contributions": {
+        "grantham_distance": -0.3768,
+        "blosum62_score": -0.1981,
+        "hydropathy_delta": -0.0521,
+        "charge_delta": -0.0471,
+        "molecular_weight_delta": -0.0519,
+        "relative_protein_position": 0.281,
+        "absolute_protein_position": 0.3511
+      },
+      "top_pathogenic_drivers": [
+        "relative_protein_position (+0.28)",
+        "absolute_protein_position (+0.35)"
+      ],
+      "top_protective_drivers": [
+        "grantham_distance (-0.38)",
+        "blosum62_score (-0.20)",
+        "hydropathy_delta (-0.05)",
+        "charge_delta (-0.05)",
+        "molecular_weight_delta (-0.05)"
+      ],
+      "mechanistic_rationale": "Balanced biophysical features across local sequence context."
+    },
+    {
+      "variant": "BRCA1 C61G",
+      "gene": "BRCA1",
+      "protein_change": "p.Cys61Gly",
+      "predicted_pathogenicity_probability": 0.9027,
+      "shap_base_value": 0.0026,
+      "feature_contributions": {
+        "grantham_distance": 0.8544,
+        "blosum62_score": 0.72,
+        "hydropathy_delta": 0.4326,
+        "charge_delta": -0.0273,
+        "molecular_weight_delta": 0.3534,
+        "relative_protein_position": -0.5417,
+        "absolute_protein_position": 0.4337
+      },
+      "top_pathogenic_drivers": [
+        "grantham_distance (+0.85)",
+        "blosum62_score (+0.72)",
+        "hydropathy_delta (+0.43)",
+        "molecular_weight_delta (+0.35)",
+        "absolute_protein_position (+0.43)"
+      ],
+      "top_protective_drivers": [
+        "charge_delta (-0.03)",
+        "relative_protein_position (-0.54)"
+      ],
+      "mechanistic_rationale": "High Grantham distance (159) indicates major biophysical divergence. Negative BLOSUM62 score (-3) reflects strong evolutionary intolerance. Hydropathy shift (-2.9) destabilizes domain microenvironment."
+    }
+  ],
+  "experiment_b": {
+    "status": "Evaluated on AlphaFold Structural Subset",
+    "subset_size": 2383,
+    "subset_genes": 14,
+    "mean_plddt": 79.59,
+    "gnomad_status": "Unavailable in raw ClinVar; gnomAD features preserved as missing without false zero imputation.",
+    "subset_auc_core_features": 0.9659,
+    "subset_auc_with_plddt": 0.9832
+  },
+  "fold_distribution": [
+    {
+      "fold": 1,
+      "train_size": 162060,
+      "test_size": 40515,
+      "test_positive_count": 12423,
+      "test_prevalence": 0.3066,
+      "test_groups_count": 3023
+    },
+    {
+      "fold": 2,
+      "train_size": 162060,
+      "test_size": 40515,
+      "test_positive_count": 12229,
+      "test_prevalence": 0.3018,
+      "test_groups_count": 3023
+    },
+    {
+      "fold": 3,
+      "train_size": 162060,
+      "test_size": 40515,
+      "test_positive_count": 13649,
+      "test_prevalence": 0.3369,
+      "test_groups_count": 3023
+    },
+    {
+      "fold": 4,
+      "train_size": 162060,
+      "test_size": 40515,
+      "test_positive_count": 12197,
+      "test_prevalence": 0.301,
+      "test_groups_count": 3023
+    },
+    {
+      "fold": 5,
+      "train_size": 162060,
+      "test_size": 40515,
+      "test_positive_count": 11360,
+      "test_prevalence": 0.2804,
+      "test_groups_count": 3023
+    }
+  ],
+  "additional_model_verification": {
+    "benchmark_verification": {
+      "TP53_R175H": {
+        "variation_id": 12374,
+        "genomic_id": "chr17:7675088:C>T",
+        "true_target": 1,
+        "oof_probability": 0.4818,
+        "in_sample_probability": 0.4772,
+        "held_out_fold": 1,
+        "signed_shap_oof": [
+          {
+            "Feature": "grantham_distance",
+            "Feature_Value": 29.0,
+            "SHAP_Final_Model": -0.37682580947875977,
+            "SHAP_OOF_Model": -0.28824934363365173
+          },
+          {
+            "Feature": "blosum62_score",
+            "Feature_Value": 0.0,
+            "SHAP_Final_Model": -0.19807156920433044,
+            "SHAP_OOF_Model": -0.17380911111831665
+          },
+          {
+            "Feature": "hydropathy_delta",
+            "Feature_Value": 1.3,
+            "SHAP_Final_Model": -0.05210362747311592,
+            "SHAP_OOF_Model": -0.010793328285217285
+          },
+          {
+            "Feature": "charge_delta",
+            "Feature_Value": -0.9,
+            "SHAP_Final_Model": -0.047102928161621094,
+            "SHAP_OOF_Model": -0.04319106414914131
+          },
+          {
+            "Feature": "molecular_weight_delta",
+            "Feature_Value": -19.04,
+            "SHAP_Final_Model": -0.05186259374022484,
+            "SHAP_OOF_Model": -0.092121422290802
+          },
+          {
+            "Feature": "relative_protein_position",
+            "Feature_Value": 0.4453,
+            "SHAP_Final_Model": 0.2809654176235199,
+            "SHAP_OOF_Model": 0.2825338840484619
+          },
+          {
+            "Feature": "absolute_protein_position",
+            "Feature_Value": 175.0,
+            "SHAP_Final_Model": 0.35110288858413696,
+            "SHAP_OOF_Model": 0.349825918674469
+          }
+        ]
+      },
+      "BRCA1_C61G": {
+        "variation_id": 17661,
+        "genomic_id": "chr17:43106487:A>C",
+        "true_target": 1,
+        "oof_probability": 0.8777,
+        "in_sample_probability": 0.9027,
+        "held_out_fold": 3,
+        "signed_shap_oof": [
+          {
+            "Feature": "grantham_distance",
+            "Feature_Value": 159.0,
+            "SHAP_Final_Model": 0.8543901443481445,
+            "SHAP_OOF_Model": 0.761194109916687
+          },
+          {
+            "Feature": "blosum62_score",
+            "Feature_Value": -3.0,
+            "SHAP_Final_Model": 0.720027506351471,
+            "SHAP_OOF_Model": 0.6073578000068665
+          },
+          {
+            "Feature": "hydropathy_delta",
+            "Feature_Value": -2.9,
+            "SHAP_Final_Model": 0.4326167702674866,
+            "SHAP_OOF_Model": 0.5407317876815796
+          },
+          {
+            "Feature": "charge_delta",
+            "Feature_Value": 0.0,
+            "SHAP_Final_Model": -0.027281377464532852,
+            "SHAP_OOF_Model": -0.021704191341996193
+          },
+          {
+            "Feature": "molecular_weight_delta",
+            "Feature_Value": -46.09,
+            "SHAP_Final_Model": 0.35335105657577515,
+            "SHAP_OOF_Model": 0.42516160011291504
+          },
+          {
+            "Feature": "relative_protein_position",
+            "Feature_Value": 0.0327,
+            "SHAP_Final_Model": -0.5417017936706543,
+            "SHAP_OOF_Model": -0.5639697313308716
+          },
+          {
+            "Feature": "absolute_protein_position",
+            "Feature_Value": 61.0,
+            "SHAP_Final_Model": 0.43365389108657837,
+            "SHAP_OOF_Model": 0.24518810212612152
+          }
+        ]
+      }
+    },
+    "structural_subset_rigorous_cv": {
+      "subset_size": 2383,
+      "subset_genes_count": 14,
+      "genes": [
+        "CFTR",
+        "LDLR",
+        "TP53",
+        "HRAS",
+        "BRAF",
+        "VHL",
+        "KRAS",
+        "PTEN",
+        "NRAS",
+        "SMAD4",
+        "CDKN2A",
+        "RB1",
+        "EGFR",
+        "AKT1"
+      ],
+      "cv_strategy": "5-Fold GroupKFold across 14 genes with identical splits",
+      "core_features_oof": {
+        "roc_auc": 0.6372,
+        "pr_auc": 0.8856,
+        "balanced_accuracy": 0.5528
+      },
+      "extended_features_oof_plddt": {
+        "roc_auc": 0.6569,
+        "pr_auc": 0.8888,
+        "balanced_accuracy": 0.596
+      },
+      "delta_roc_auc": 0.0196,
+      "fold_breakdown": [
+        {
+          "fold": 1,
+          "val_variants": 737,
+          "val_pathogenic": 701,
+          "prevalence": 0.9512,
+          "val_genes": [
+            "LDLR"
+          ],
+          "core_auc": 0.7134,
+          "ext_auc": 0.7669
+        },
+        {
+          "fold": 2,
+          "val_variants": 416,
+          "val_pathogenic": 258,
+          "prevalence": 0.6202,
+          "val_genes": [
+            "TP53",
+            "NRAS"
+          ],
+          "core_auc": 0.7888,
+          "ext_auc": 0.7722
+        },
+        {
+          "fold": 3,
+          "val_variants": 403,
+          "val_pathogenic": 345,
+          "prevalence": 0.8561,
+          "val_genes": [
+            "KRAS",
+            "PTEN",
+            "EGFR",
+            "AKT1"
+          ],
+          "core_auc": 0.569,
+          "ext_auc": 0.6655
+        },
+        {
+          "fold": 4,
+          "val_variants": 413,
+          "val_pathogenic": 323,
+          "prevalence": 0.7821,
+          "val_genes": [
+            "CFTR",
+            "SMAD4",
+            "RB1"
+          ],
+          "core_auc": 0.5887,
+          "ext_auc": 0.6461
+        },
+        {
+          "fold": 5,
+          "val_variants": 414,
+          "val_pathogenic": 336,
+          "prevalence": 0.8116,
+          "val_genes": [
+            "HRAS",
+            "BRAF",
+            "VHL",
+            "CDKN2A"
+          ],
+          "core_auc": 0.7164,
+          "ext_auc": 0.5805
+        }
+      ]
+    }
+  }
+}

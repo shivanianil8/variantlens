@@ -34,7 +34,8 @@ def test_model_metadata_transparency():
     response = client.get("/api/model/metadata")
     assert response.status_code == 200
     data = response.json()
-    # Ensure transparency: not claiming trained in Phase 1
-    assert data["is_trained"] is False
-    assert data["status"] == "awaiting_training_phase_2"
+    # Ensure transparency: verified model trained in Phase 4
+    assert data["is_trained"] is True
+    assert data["status"] == "production_ready"
+    assert "xgboost" in data["oof_evaluation_metrics"]
     assert len(data["leakage_safeguards"]) > 0

@@ -119,10 +119,12 @@ export const OverviewPage: React.FC = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {benchmarks.map((b) => (
+            {benchmarks.map((b) => {
+              const queryStr = b.variant.raw_query || `${b.variant.gene_symbol} ${b.variant.wild_type_aa}${b.variant.protein_position}${b.variant.mutant_aa}`;
+              return (
               <div
-                key={b.variant.raw_query}
-                onClick={() => navigate(`/explorer?q=${encodeURIComponent(b.variant.raw_query)}`)}
+                key={queryStr}
+                onClick={() => navigate(`/explorer?q=${encodeURIComponent(queryStr)}`)}
                 className="group relative bg-navy-900 hover:bg-navy-850 border border-navy-800 hover:border-cyan-500/50 rounded-xl p-5 transition-all duration-200 cursor-pointer shadow-lg shadow-navy-950/50 flex flex-col justify-between"
               >
                 <div className="space-y-3">
@@ -171,7 +173,8 @@ export const OverviewPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
         )}
       </section>
