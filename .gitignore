@@ -55,7 +55,8 @@ yarn-error.log*
 Thumbs.db
 
 # Large raw datasets (not checked into git)
-data/raw/
-backend/ml_pipeline/data/raw/
+data/
+backend/data/
 *.vcf.gz
 *.txt.gz
+*.parquet
